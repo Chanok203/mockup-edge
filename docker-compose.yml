@@ -43,4 +43,7 @@ services:
       - "1935:1935" # RTMP
       - "8888:8888" # HLS
       - "8889:8889" # WebRTC
+      - "10000:10000/udp" # WebRTC Data
+    volumes:
+      - ./config/mediamtx.yml:/mediamtx.yml
     restart: unless-stopped

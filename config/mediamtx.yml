@@ -1,0 +1,18 @@
+# mediamtx.yml
+paths:
+  all_others:
+
+# --- WebRTC Settings ---
+webrtc: yes
+webrtcAddress: :8889
+webrtcEncryption: no
+
+# ใช้พอร์ต 10000 เพื่อให้ตรงกับที่ทำ Port Forwarding ใน Docker
+webrtcLocalUDPAddress: :10000
+
+# อนุญาตให้ Gather IP จาก Interface ต่างๆ
+webrtcIPsFromInterfaces: true
+
+# สำคัญที่สุด: ระบุ IP ของ Notebook คุณเพื่อให้ WebRTC หาทางกลับถูก
+# เปลี่ยนเป็น IP เครื่องคุณ (เช็คจาก ipconfig)
+webrtcAdditionalHosts: []
