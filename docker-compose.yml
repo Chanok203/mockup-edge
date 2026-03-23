@@ -16,16 +16,6 @@ services:
       - 6379:6379
     restart: unless-stopped
 
-  mosquitto:
-    image: eclipse-mosquitto:2
-    ports:
-      - 1883:1883
-    volumes:
-      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
-      - ./data/mosquitto/data:/mosquitto/data
-      - ./data/mosquitto/log:/mosquitto/log
-    restart: unless-stopped
-
   qgis-server:
     image: qgis/qgis-server:ltr
     ports:
@@ -33,17 +23,4 @@ services:
     volumes:
       - ./data/qgis-server/data:/data
       - ./config/qgis-server-nginx.conf:/etc/nginx/nginx.conf:ro
-    restart: unless-stopped
-
-  mediamtx:
-    image: bluenviron/mediamtx:1
-    ports:
-      - "8554:8554" # RTSP
-      - "1935:1935" # RTMP
-      - "8888:8888" # HLS
-      - "8889:8889" # WebRTC
-      - "9997:9997" # Control API
-      - "10000:10000/udp" # WebRTC Data
-    volumes:
-      - ./config/mediamtx.yml:/mediamtx.yml
     restart: unless-stopped
